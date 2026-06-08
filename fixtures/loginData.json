@@ -1,0 +1,8 @@
+{
+  "validUsername": "Admin",
+  "validPassword": "admin123",
+  "invalidUsername": "WrongAdmin",
+  "invalidPassword": "wrongpass123",
+  "specialCharUsername": "@@@###",
+  "specialCharPassword": "%%%^^^"
+}
