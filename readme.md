@@ -35,7 +35,7 @@ https://opensource-demo.orangehrmlive.com/
 - Cypress Intercept
 
 ---
-
+```
 # Tugas 16 - Login Automation with Intercept
 
 ## Deskripsi
@@ -60,7 +60,7 @@ Melakukan automation testing pada fitur Login OrangeHRM dengan menggunakan `cy.i
 
 ```text
 cypress/e2e/loginIntercept.cy.js
-
+```
 # Tugas 17 - Automation Login Menggunakan Page Object Model (POM)
 
 ## Deskripsi
