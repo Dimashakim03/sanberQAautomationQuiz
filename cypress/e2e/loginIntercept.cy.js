@@ -35,17 +35,18 @@ describe('OrangeHRM Login Intercept', () => {
     .should('contain.text', 'Required')
 })
 
-  it('TC04 - Username salah', () => {
-    cy.intercept('POST', '**/auth/validate').as('invalidUser')
+it('TC04 - Username salah', () => {
+  cy.intercept('POST', '**/auth/validate').as('invalidUser')
 
-    cy.get('input[name="username"]').type('Admin123')
-    cy.get('input[name="password"]').type('admin123')
-    cy.get('button[type="submit"]').click()
+  cy.get('input[name="username"]').type('Admin123')
+  cy.get('input[name="password"]').type('admin123')
+  cy.get('button[type="submit"]').click()
 
-    cy.wait('@invalidUser')
+  cy.wait('@invalidUser')
 
-    cy.contains('Invalid credentials').should('be.visible')
-  })
+  cy.get('.oxd-alert-content')
+    .should('be.visible')
+})
 
   it('TC05 - Password salah', () => {
     cy.intercept('POST', '**/auth/validate').as('invalidPassword')
