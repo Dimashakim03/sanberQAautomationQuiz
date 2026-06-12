@@ -234,3 +234,45 @@ Metode yang digunakan:
 - Page Object Model (POM)
 - Fixture Data
 - Assertion Cypress
+
+# Tugas 18 - API Automation Testing
+
+## Website
+
+https://api.escuelajs.co/api/v1/categories
+
+## Tools
+
+- Cypress
+- JavaScript
+
+## Total Test Case
+
+12 API Request
+
+### GET
+1. Get List Users
+2. Get Single User
+3. Get Single User Not Found
+4. Get List Resource
+5. Get Single Resource
+
+### POST
+6. Create User
+7. Register Success
+8. Login Success
+9. Login Failed
+
+### PUT/PATCH
+10. Update User (PUT)
+11. Update User (PATCH)
+
+### DELETE
+12. Delete User
+
+## Assertion
+
+- Status Code
+- Response Body
+- Response Property
+- Response Value
