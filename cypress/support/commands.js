@@ -1,25 +1,34 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('visitLoginPage', () => {
+  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+});
+
+Cypress.Commands.add('inputUsername', (username) => {
+  cy.get('input[name="username"]').clear().type(username);
+});
+
+Cypress.Commands.add('inputPassword', (password) => {
+  cy.get('input[name="password"]').clear().type(password);
+});
+
+Cypress.Commands.add('clickLogin', () => {
+  cy.get('button[type="submit"]').click();
+});
+
+Cypress.Commands.add('login', (username, password) => {
+  cy.inputUsername(username);
+  cy.inputPassword(password);
+  cy.clickLogin();
+});
+
+Cypress.Commands.add('assertDashboardVisible', () => {
+  cy.url().should('include', '/dashboard');
+  cy.get('.oxd-topbar-header-breadcrumb').should('contain.text', 'Dashboard');
+});
+
+Cypress.Commands.add('assertInvalidCredentialMessage', () => {
+  cy.get('.oxd-alert-content-text').should('be.visible').and('contain.text', 'Invalid credentials');
+});
+
+Cypress.Commands.add('assertRequiredMessage', () => {
+  cy.contains('span', 'Required').should('be.visible');
+});
